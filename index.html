@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+
+      .wrapper {
+        margin-top: 80px;
+        padding: 0.5em;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: blanchedalmond;
+      }
+
+      .wrapper .condition {
+        text-align: center;
+        max-width: 580px;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        font-size: larger;
+      }
+
+      label,
+      form {
+        text-align: left;
+        justify-content: left;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1>Number guessing game</h1>
+
+      <p class="condition">
+        We have selected a random number between 1 and 100. See if you can guess
+        it in 10 turns or fewer. We'll tell you if your guess was too high or
+        too low.
+      </p>
+
+      <div class="form">
+        <label for="guessField">Enter a guess: </label>
+        <input type="text" id="guessField" class="guessField" />
+        <input type="submit" value="Submit guess" class="guessSubmit" />
+      </div>
+
+      <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
