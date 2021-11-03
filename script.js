@@ -10,6 +10,8 @@ var guessField = document.querySelector(".guessField");
 var guessCount = 1;
 var resetButton;
 
+guessField.focus(); //Для переменных, которые не содержат ссылок на элементы формы, не будет доступен focus(). Например, переменная guesses содержит ссылку на элемент <p>, а guessCount содержит число.
+
 function checkGuess() {
   var userGuess = Number(guessField.value);
   if (guessCount === 1) {
@@ -38,6 +40,37 @@ function checkGuess() {
   guessCount++;
   guessField.value = "";
   guessField.focus();
+}
+
+guessSubmit.addEventListener("click", checkGuess);
+
+function setGameOver() {
+  guessField.disabled = true;
+  guessSubmit.disabled = true;
+  resetButton = document.createElement("button");
+  resetButton.textContent = "Start new game";
+  document.body.appendChild(resetButton);
+  resetButton.addEventListener("click", resetGame);
+}
+
+function resetGame() {
+  guessCount = 1;
+
+  var resetParas = document.querySelectorAll(".resultParas p");
+  for (var i = 0; i < resetParas.length; i++) {
+    resetParas[i].textContent = "";
+  }
+
+  resetButton.parentNode.removeChild(resetButton);
+
+  guessField.disabled = false;
+  guessSubmit.disabled = false;
+  guessField.value = "";
+  guessField.focus();
+
+  lastResult.style.backgroundColor = "white";
+
+  randomNumber = Math.floor(Math.random() * 100) + 1;
 }
 
 checkGuess();
